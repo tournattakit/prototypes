@@ -56,7 +56,7 @@ String.prototype.separateWords = function (symbol = ' ') {
     return strings.join(symbol);
 }
 String.prototype.toSwapCase = function () {
-    let chars = this.split('');
+    const chars = this.split('');
     for (const i in chars) {
         const char = chars[i].toString();
         if (char.match(/[A-Z]/g)) {
@@ -65,15 +65,12 @@ String.prototype.toSwapCase = function () {
             chars[i] = char.toUpperCase();
         }
     }
-
     return chars.join('');
 }
 String.prototype.toMixedCase = function () {
-    let chars = this.split('');
-
+    const chars = this.split('');
     return chars.map((value, index) => chars[index] = (index % 2 === 0) ? value.toUpperCase() : value.toLowerCase()).join('');
 }
-
 String.prototype.toProperCase = function () {
     return this.replace(/\b\w/g, (letter) => letter.toUpperCase());
 }

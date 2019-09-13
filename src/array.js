@@ -4,22 +4,18 @@ Array.prototype.findUnique = function () {
     const result = this.filter((value, index, self) => {
         return (self.filter(v => v === value).length === 1) ? value : null;
     })[0];
-
     if (typeof result === 'undefined') {
         return null;
     }
-
     return result;
 }
 Array.prototype.findAllUnique = function () {
     const result = this.filter((value, index, self) => {
         return (self.filter(v => v === value).length === 1) ? value : null;
     });
-
     if (result.length === 0) {
         return null;
     }
-
     return result;
 }
 Array.prototype.min = function () {
@@ -57,6 +53,9 @@ Array.prototype.findType = function (type) {
     return values;
 }
 Array.prototype.shuffle = function () {
-    return this.sort(randomCompare);
+    for (let index = 0; index < this.length; index++) {
+        this.sort(randomCompare);
+    }
+    return this;
 }
 
